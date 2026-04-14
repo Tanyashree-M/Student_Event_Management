@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0f0a1e;
+  color: #f5f3ff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.float-group { position: relative; }
+
+.float-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px 16px 8px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  color: #f5f3ff;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+  appearance: none;
+}
+
+.float-input::placeholder { color: transparent; }
+
+.float-input:focus {
+  border-color: #5B2EFF;
+  box-shadow: 0 0 0 3px rgba(91,46,255,0.2);
+  background: rgba(91,46,255,0.06);
+}
+
+.float-input:focus + .float-label,
+.float-input:not(:placeholder-shown) + .float-label {
+  top: 8px;
+  font-size: 11px;
+  color: #a78bfa;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.float-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.float-input.select-filled + .float-label {
+  top: 8px;
+  font-size: 11px;
+  color: #a78bfa;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+select.float-input option { background: #1a1035; color: #f5f3ff; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(91,46,255,0.4); border-radius: 4px; }
+
+@keyframes toastIn  { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes toastOut { from { opacity: 1; transform: translateX(0); }    to { opacity: 0; transform: translateX(100%); } }
+.toast-enter { animation: toastIn  0.3s ease forwards; }
+.toast-exit  { animation: toastOut 0.3s ease forwards; }
+
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.anim-hidden { opacity: 0; }
