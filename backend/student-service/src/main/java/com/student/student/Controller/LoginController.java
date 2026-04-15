@@ -1,6 +1,6 @@
 package com.student.student.Controller;
 
-import com.student.event.Model.EventModel;
+import com.student.student.DTO.EventDTO;
 import com.student.student.Model.LoginModel;
 import com.student.student.Service.LoginService;
 import org.springframework.http.HttpStatus;
@@ -22,8 +22,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<EventModel[]> login(@RequestBody LoginModel model){
-        EventModel[]events = logService.login(model);
+    public ResponseEntity<EventDTO[]> login(@RequestBody LoginModel model){
+        EventDTO[]events = logService.login(model);
 
         if (events == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);

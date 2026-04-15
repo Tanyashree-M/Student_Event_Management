@@ -1,6 +1,6 @@
 package com.student.student.Service;
 
-import com.student.event.Model.EventModel;
+import com.student.student.DTO.EventDTO;
 import com.student.student.Model.LoginModel;
 import com.student.student.Model.StudentModel;
 import com.student.student.Repository.RegisterRepo;
@@ -19,13 +19,13 @@ public class LoginService {
         this.restTemplate = restTemplate;
     }
 
-    public EventModel[] login(LoginModel model) {
+    public EventDTO[] login(LoginModel model) {
         StudentModel s = regRepo.findByEmail(model.getEmail());
         if (s==null)
             return null;
         if (s.getPassword().equals(model.getPassword())){
             String url = "http://localhost:8081/event/" + s.getRollNo();
-            ResponseEntity<EventModel[]> response = restTemplate.getForEntity(url, EventModel[].class);
+            ResponseEntity<EventDTO[]> response = restTemplate.getForEntity(url, EventDTO[].class);
             if(response.getStatusCode().is2xxSuccessful())
                 return response.getBody();
             return null;
