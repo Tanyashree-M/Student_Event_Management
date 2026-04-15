@@ -1,6 +1,5 @@
 package com.student.faculty.Controller;
 
-import com.student.event.Model.EventModel;
 import com.student.faculty.Model.FacultyModel;
 import com.student.faculty.Model.LoginModel;
 import com.student.faculty.Service.LoginService;
