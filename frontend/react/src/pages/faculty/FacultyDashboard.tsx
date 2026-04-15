@@ -48,7 +48,7 @@ export default function FacultyDashboard() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch(`http://localhost:8083/faculty/${month}/${facultyId}`);
+      const res = await fetch(`https://faculty-service-xx3l.onrender.com/faculty/${month}/${facultyId}`);
       if (res.ok) {
         const data: Event[] = await res.json();
         setEvents(data);
@@ -68,13 +68,13 @@ export default function FacultyDashboard() {
   const handleSubmit = async () => {
     const payload = { ...formData, facultyId };
     if (editMode && currentEventId) {
-      await fetch(`http://localhost:8083/faculty/update/${currentEventId}/${facultyId}`, {
+      await fetch(`https://faculty-service-xx3l.onrender.com/faculty/update/${currentEventId}/${facultyId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
     } else {
-      await fetch(`http://localhost:8083/faculty/add`, {
+      await fetch(`https://faculty-service-xx3l.onrender.com/faculty/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -85,7 +85,7 @@ export default function FacultyDashboard() {
   };
 
   const handleDelete = async (id: string) => {
-    await fetch(`http://localhost:8083/faculty/delete/${id}/${facultyId}`, {
+    await fetch(`https://faculty-service-xx3l.onrender.com/faculty/delete/${id}/${facultyId}`, {
       method: "DELETE",
     });
     fetchEvents();

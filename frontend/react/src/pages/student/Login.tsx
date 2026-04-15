@@ -7,7 +7,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    fetch("http://localhost:8082/student/login", {
+    fetch("https://student-service-qm68.onrender.com/student/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

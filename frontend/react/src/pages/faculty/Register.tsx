@@ -55,7 +55,7 @@ export default function Register() {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:8083/faculty/register", {
+    const res = await fetch("https://faculty-service-xx3l.onrender.com/faculty/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

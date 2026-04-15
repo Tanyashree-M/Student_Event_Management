@@ -41,7 +41,7 @@ export default function Login() {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:8083/faculty/login", {
+    const res = await fetch("https://faculty-service-xx3l.onrender.com/faculty/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

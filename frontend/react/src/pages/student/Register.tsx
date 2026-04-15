@@ -11,7 +11,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    fetch("http://localhost:8082/student/register", {
+    fetch("https://student-service-qm68.onrender.com/student/register", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
